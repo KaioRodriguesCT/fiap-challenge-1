@@ -31,7 +31,7 @@ async function sendMessage(){
         response.json()
         cleanForm('form')
     })
-    .then(result => alert("Desafio Concluido:", result))
-    .catch(error => console.error("Erro no Desafio:", error));
+    .then(result => alert("Desafio Concluido"))
+    .catch(error => alert("Erro no Desafio: " + error));
 
 }
