@@ -2,7 +2,7 @@ function cleanForm(id){
     return document.getElementById(id)?.reset();
 }
 
-async function sendMessage(){
+function sendMessage(){
     const form = document.getElementById("form");
     const formData = new FormData(form);
     const name1 = formData.get('name1');
@@ -18,20 +18,17 @@ async function sendMessage(){
         message: message
     }
 
-    alert(body)
-
     fetch("https://fsdt-contact.onrender.com/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body,
+      body: JSON.stringify(body),
     })
-    .then(response => {
-        response.json()
+    .then(result => {
+        alert("Desafio Concluido")
         cleanForm('form')
     })
-    .then(result => alert("Desafio Concluido"))
     .catch(error => alert("Erro no Desafio: " + error));
 
 }
